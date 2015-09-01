@@ -38,7 +38,7 @@ final class softwareTest extends \PHPUnit_Framework_TestCase {
 
     private function executeCurlRequest(string $host, string $httpMethod, string $uri, array $data = null) {
 
-        include_once('src/softwares/datastore/logics/curl/execute.hh');
+        include_once('src/softwares/datastore/apis/logics/curl/execute.hh');
 
         $params = Map<string, string> {
             'host' => $host,
@@ -56,19 +56,21 @@ final class softwareTest extends \PHPUnit_Framework_TestCase {
 
     private function execute(string $httpMethod, string $uri, array $data = null) {
 
-        return $this->executeCurlRequest('http://datastore.apis.irestful.com', $httpMethod, $uri, $data);
+        return $this->executeCurlRequest('http://datastore-apis.softwares.irestful.com', $httpMethod, $uri, $data);
     }
 
     private function saveSoftwareInDataStore_Success() {
 
         $data = array(
-            'config_url' => 'http://code.irestful.com/softwares/datastore/datastore.json'
+            'config_url' => 'http://code.irestful.com/softwares/datastore/apis/datastore.json'
         );
 
-        $host = 'http://apis.irestful.com';
+        $host = 'http://softwares.irestful.com';
         $uri = '/';
 
         $output = $this->executeCurlRequest($host, 'post', $uri, $data);
+
+
 
         $this->assertEquals($output['http_code'], 200);
 
@@ -125,11 +127,11 @@ final class softwareTest extends \PHPUnit_Framework_TestCase {
                     'validator' => array(
                         'language' => array(
                             'name' => 'hack',
-                            'host' => 'http://hack.languageapi.irestful.com',
+                            'host' => 'http://hack.languages.irestful.com',
                             'port' => 80
                         ),
                         'function' => array(
-                            'url' => 'http://code.irestful.com/softwares/datastore/validators/uuid.hh',
+                            'url' => 'http://code.irestful.com/softwares/datastore/apis/validators/uuid.hh',
                             'name' => 'uuid',
                             'language' => 'hack'
                         )
@@ -141,11 +143,11 @@ final class softwareTest extends \PHPUnit_Framework_TestCase {
                     'validator' => array(
                         'language' => array(
                             'name' => 'hack',
-                            'host' => 'http://hack.languageapi.irestful.com',
+                            'host' => 'http://hack.languages.irestful.com',
                             'port' => 80
                         ),
                         'function' => array(
-                            'url' => 'http://code.irestful.com/softwares/datastore/validators/slug.hh',
+                            'url' => 'http://code.irestful.com/softwares/datastore/apis/validators/slug.hh',
                             'name' => 'slug',
                             'language' => 'hack'
                         )

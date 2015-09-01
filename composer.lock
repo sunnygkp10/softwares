@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/irestful/core.git",
-                "reference": "99b6da7b0e93f8f84c96b07a36d5d4cdc0d7396c"
+                "reference": "1b616d2ba74eeff4f8d6d1664dc7852a402a5a36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/irestful/core/zipball/99b6da7b0e93f8f84c96b07a36d5d4cdc0d7396c",
-                "reference": "99b6da7b0e93f8f84c96b07a36d5d4cdc0d7396c",
+                "url": "https://api.github.com/repos/irestful/core/zipball/1b616d2ba74eeff4f8d6d1664dc7852a402a5a36",
+                "reference": "1b616d2ba74eeff4f8d6d1664dc7852a402a5a36",
                 "shasum": ""
             },
             "require": {
@@ -43,7 +43,7 @@
                 }
             ],
             "homepage": "https://github.com/irestful/core",
-            "time": "2015-09-01 05:22:10"
+            "time": "2015-09-01 17:58:45"
         }
     ],
     "packages-dev": [

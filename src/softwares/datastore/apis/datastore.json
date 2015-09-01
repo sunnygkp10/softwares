@@ -1,5 +1,5 @@
 {
-    "name": "datastore",
+    "name": "datastore-apis",
     "configuration": {
         "variable_pointer": "->",
         "variable_prefix": "*",
@@ -23,163 +23,163 @@
     },
     "languages": {
         "hack": {
-            "host": "http://hack.languageapi.irestful.com",
+            "host": "http://hack.languages.irestful.com",
             "port": 80
         }
     },
     "functions": {
         "database_connect": {
-            "url": "http://code.irestful.com/softwares/datastore/logics/pdo/pdo-connect.hh",
+            "url": "http://code.irestful.com/softwares/datastore/apis/logics/pdo/pdo-connect.hh",
             "name": "PDOConnect",
             "language": "hack"
         },
         "database_retrieve": {
-            "url": "http://code.irestful.com/softwares/datastore/logics/pdo/pdo-retrieve.hh",
+            "url": "http://code.irestful.com/softwares/datastore/apis/logics/pdo/pdo-retrieve.hh",
             "name": "PDORetrieve",
             "language": "hack"
         },
         "database_retrieve_one": {
-            "url": "http://code.irestful.com/softwares/datastore/logics/pdo/pdo-retrieve-one.hh",
+            "url": "http://code.irestful.com/softwares/datastore/apis/logics/pdo/pdo-retrieve-one.hh",
             "name": "PDORetrieveOne",
             "language": "hack"
         },
         "database_execute": {
-            "url": "http://code.irestful.com/softwares/datastore/logics/pdo/pdo-execute.hh",
+            "url": "http://code.irestful.com/softwares/datastore/apis/logics/pdo/pdo-execute.hh",
             "name": "PDOExecute",
             "language": "hack"
         },
         "curl_execute": {
-            "url": "http://code.irestful.com/softwares/datastore/logics/curl/execute.hh",
+            "url": "http://code.irestful.com/softwares/datastore/apis/logics/curl/execute.hh",
             "name": "execute",
             "language": "hack"
         },
         "validator": {
-            "url": "http://code.irestful.com/softwares/datastore/logics/validator.hh",
+            "url": "http://code.irestful.com/softwares/datastore/apis/logics/validator.hh",
             "name": "validator",
             "language": "hack"
         },
         "view_json": {
-            "url": "http://code.irestful.com/softwares/datastore/views/json.hh",
+            "url": "http://code.irestful.com/softwares/datastore/apis/views/json.hh",
             "name": "render",
             "language": "hack"
         },
         "view_single_element": {
-            "url": "http://code.irestful.com/softwares/datastore/views/single-element.hh",
+            "url": "http://code.irestful.com/softwares/datastore/apis/views/single-element.hh",
             "name": "singleElement",
             "language": "hack"
         },
         "view_elements_with_pagination": {
-            "url": "http://code.irestful.com/softwares/datastore/views/elements-with-pagination.hh",
+            "url": "http://code.irestful.com/softwares/datastore/apis/views/elements-with-pagination.hh",
             "name": "elementsWithPagination",
             "language": "hack"
         },
         "rendered_parser_json": {
-            "url": "http://code.irestful.com/softwares/datastore/rendered_parsers/json.hh",
+            "url": "http://code.irestful.com/softwares/datastore/apis/rendered_parsers/json.hh",
             "name": "parse",
             "language": "hack"
         },
         "validator_regex_match": {
-            "url": "http://code.irestful.com/softwares/datastore/validators/regex-match.hh",
+            "url": "http://code.irestful.com/softwares/datastore/apis/validators/regex-match.hh",
             "name": "match",
             "language": "hack"
         },
         "validator_software_name": {
-            "url": "http://code.irestful.com/softwares/datastore/validators/software-name.hh",
+            "url": "http://code.irestful.com/softwares/datastore/apis/validators/software-name.hh",
             "name": "softwareName",
             "language": "hack"
         },
         "validator_container_name": {
-            "url": "http://code.irestful.com/softwares/datastore/validators/container-name.hh",
+            "url": "http://code.irestful.com/softwares/datastore/apis/validators/container-name.hh",
             "name": "containerName",
             "language": "hack"
         },
         "validator_container_fields": {
-            "url": "http://code.irestful.com/softwares/datastore/validators/container-fields.hh",
+            "url": "http://code.irestful.com/softwares/datastore/apis/validators/container-fields.hh",
             "name": "containerFields",
             "language": "hack"
         },
         "validator_element_fields": {
-            "url": "http://code.irestful.com/softwares/datastore/validators/element-fields.hh",
+            "url": "http://code.irestful.com/softwares/datastore/apis/validators/element-fields.hh",
             "name": "elementFields",
             "language": "hack"
         },
         "validator_uuid": {
-            "url": "http://code.irestful.com/softwares/datastore/validators/uuid.hh",
+            "url": "http://code.irestful.com/softwares/datastore/apis/validators/uuid.hh",
             "name": "uuid",
             "language": "hack"
         },
         "validator_field_name": {
-            "url": "http://code.irestful.com/softwares/datastore/validators/field-name.hh",
+            "url": "http://code.irestful.com/softwares/datastore/apis/validators/field-name.hh",
             "name": "fieldName",
             "language": "hack"
         },
         "validator_field_value": {
-            "url": "http://code.irestful.com/softwares/datastore/validators/field-value.hh",
+            "url": "http://code.irestful.com/softwares/datastore/apis/validators/field-value.hh",
             "name": "fieldValue",
             "language": "hack"
         },
         "validator_integer": {
-            "url": "http://code.irestful.com/softwares/datastore/validators/integer.hh",
+            "url": "http://code.irestful.com/softwares/datastore/apis/validators/integer.hh",
             "name": "integer",
             "language": "hack"
         },
         "validator_non_zero_integer": {
-            "url": "http://code.irestful.com/softwares/datastore/validators/non-zero-integer.hh",
+            "url": "http://code.irestful.com/softwares/datastore/apis/validators/non-zero-integer.hh",
             "name": "nonZeroInteger",
             "language": "hack"
         },
         "retrieve_software" : {
-            "url": "http://code.irestful.com/softwares/datastore/rest_apis/softwares/retrieve-software.hh",
+            "url": "http://code.irestful.com/softwares/datastore/apis/rest_apis/softwares/retrieve-software.hh",
             "name": "retrieveSoftware",
             "language": "hack"
         },
         "create_software" : {
-            "url": "http://code.irestful.com/softwares/datastore/rest_apis/softwares/create-software.hh",
+            "url": "http://code.irestful.com/softwares/datastore/apis/rest_apis/softwares/create-software.hh",
             "name": "createSoftware",
             "language": "hack"
         },
         "delete_software" : {
-            "url": "http://code.irestful.com/softwares/datastore/rest_apis/softwares/delete-software.hh",
+            "url": "http://code.irestful.com/softwares/datastore/apis/rest_apis/softwares/delete-software.hh",
             "name": "deleteSoftware",
             "language": "hack"
         },
         "retrieve_container" : {
-            "url": "http://code.irestful.com/softwares/datastore/rest_apis/containers/retrieve-container.hh",
+            "url": "http://code.irestful.com/softwares/datastore/apis/rest_apis/containers/retrieve-container.hh",
             "name": "retrieveContainer",
             "language": "hack"
         },
         "delete_container" : {
-            "url": "http://code.irestful.com/softwares/datastore/rest_apis/containers/delete-container.hh",
+            "url": "http://code.irestful.com/softwares/datastore/apis/rest_apis/containers/delete-container.hh",
             "name": "deleteContainer",
             "language": "hack"
         },
         "create_container" : {
-            "url": "http://code.irestful.com/softwares/datastore/rest_apis/containers/create-container.hh",
+            "url": "http://code.irestful.com/softwares/datastore/apis/rest_apis/containers/create-container.hh",
             "name": "createContainer",
             "language": "hack"
         },
         "create_element" : {
-            "url": "http://code.irestful.com/softwares/datastore/rest_apis/elements/create-element.hh",
+            "url": "http://code.irestful.com/softwares/datastore/apis/rest_apis/elements/create-element.hh",
             "name": "createElement",
             "language": "hack"
         },
         "retrieve_element" : {
-            "url": "http://code.irestful.com/softwares/datastore/rest_apis/elements/retrieve-single-element.hh",
+            "url": "http://code.irestful.com/softwares/datastore/apis/rest_apis/elements/retrieve-single-element.hh",
             "name": "retrieveSingleElement",
             "language": "hack"
         },
         "retrieve_element_by_unique_identifier" : {
-            "url": "http://code.irestful.com/softwares/datastore/rest_apis/elements/retrieve-single-element-by-unique-identifier.hh",
+            "url": "http://code.irestful.com/softwares/datastore/apis/rest_apis/elements/retrieve-single-element-by-unique-identifier.hh",
             "name": "retrieveSingleElement",
             "language": "hack"
         },
         "retrieve_elements_with_pagination" : {
-            "url": "http://code.irestful.com/softwares/datastore/rest_apis/elements/retrieve-elements-with-pagination.hh",
+            "url": "http://code.irestful.com/softwares/datastore/apis/rest_apis/elements/retrieve-elements-with-pagination.hh",
             "name": "retrieveElementsWithPagination",
             "language": "hack"
         },
         "delete_element" : {
-            "url": "http://code.irestful.com/softwares/datastore/rest_apis/elements/delete-element.hh",
+            "url": "http://code.irestful.com/softwares/datastore/apis/rest_apis/elements/delete-element.hh",
             "name": "deleteElement",
             "language": "hack"
         }

@@ -19,7 +19,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
   config.vm.provision "shell", inline: <<-shell
 
-    API_URL="http://apis.irestful.com";
+    API_URL="http://softwares.irestful.com";
     AUTOLOAD_FILEPATH="/vagrant/vendor/autoload.php";
     DB_USERNAME="root";
     DB_PASSWORD=`tr -dc A-Za-z0-9 < /dev/urandom | head -c 8 | xargs`;
@@ -80,20 +80,20 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     sudo cp /vagrant/configs/code.nginx.conf /etc/nginx/sites-available/code.nginx.conf;
     sudo ln -s /etc/nginx/sites-available/code.nginx.conf /etc/nginx/sites-enabled/code.nginx.conf;
 
-    sudo cp /vagrant/configs/hack.languageapi.nginx.conf /etc/nginx/sites-available/hack.languageapi.nginx.conf;
-    sudo ln -s /etc/nginx/sites-available/hack.languageapi.nginx.conf /etc/nginx/sites-enabled/hack.languageapi.nginx.conf;
+    sudo cp /vagrant/configs/hack.languages.nginx.conf /etc/nginx/sites-available/hack.languages.nginx.conf;
+    sudo ln -s /etc/nginx/sites-available/hack.languages.nginx.conf /etc/nginx/sites-enabled/hack.languages.nginx.conf;
 
-    sudo cp /vagrant/configs/apis.nginx.conf /etc/nginx/sites-available/apis.nginx.conf;
-    sudo ln -s /etc/nginx/sites-available/apis.nginx.conf /etc/nginx/sites-enabled/apis.nginx.conf;
+    sudo cp /vagrant/configs/softwares.nginx.conf /etc/nginx/sites-available/softwares.nginx.conf;
+    sudo ln -s /etc/nginx/sites-available/softwares.nginx.conf /etc/nginx/sites-enabled/softwares.nginx.conf;
 
-    sudo cp /vagrant/configs/wildcard.apis.nginx.conf /etc/nginx/sites-available/wildcard.apis.nginx.conf;
-    sudo ln -s /etc/nginx/sites-available/wildcard.apis.nginx.conf /etc/nginx/sites-enabled/wildcard.apis.nginx.conf;
+    sudo cp /vagrant/configs/wildcard.softwares.nginx.conf /etc/nginx/sites-available/wildcard.softwares.nginx.conf;
+    sudo ln -s /etc/nginx/sites-available/wildcard.softwares.nginx.conf /etc/nginx/sites-enabled/wildcard.softwares.nginx.conf;
 
     //Make sure to modify the environment variables:
-    sudo sed -i "s/{username}/$DB_USERNAME/g" /etc/nginx/sites-enabled/wildcard.apis.nginx.conf;
-    sudo sed -i "s/{password}/$DB_PASSWORD/g" /etc/nginx/sites-enabled/wildcard.apis.nginx.conf;
-    sudo sed -i "s/{server}/$DB_SERVER/g" /etc/nginx/sites-enabled/wildcard.apis.nginx.conf;
-    sudo sed -i "s/{driver}/$DB_DRIVER/g" /etc/nginx/sites-enabled/wildcard.apis.nginx.conf;
+    sudo sed -i "s/{username}/$DB_USERNAME/g" /etc/nginx/sites-enabled/wildcard.softwares.nginx.conf;
+    sudo sed -i "s/{password}/$DB_PASSWORD/g" /etc/nginx/sites-enabled/wildcard.softwares.nginx.conf;
+    sudo sed -i "s/{server}/$DB_SERVER/g" /etc/nginx/sites-enabled/wildcard.softwares.nginx.conf;
+    sudo sed -i "s/{driver}/$DB_DRIVER/g" /etc/nginx/sites-enabled/wildcard.softwares.nginx.conf;
 
     //restart the server:
     sudo service nginx restart;
@@ -106,26 +106,26 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     #create the web directories for our apps:
     mkdir /vagrant/bin;
-    mkdir /vagrant/bin/apis;
-    mkdir /vagrant/bin/apis/database;
-    mkdir /vagrant/bin/apis/bin;
-    mkdir /vagrant/bin/apis/wildcard;
-    mkdir /vagrant/bin/apis/wildcard/bin;
-    mkdir /vagrant/bin/language_apis;
-    mkdir /vagrant/bin/language_apis/hack;
-    mkdir /vagrant/bin/language_apis/hack/bin;
-    mkdir /vagrant/bin/language_apis/hack/cache;
+    mkdir /vagrant/bin/softwares;
+    mkdir /vagrant/bin/softwares/database;
+    mkdir /vagrant/bin/softwares/bin;
+    mkdir /vagrant/bin/softwares/wildcard;
+    mkdir /vagrant/bin/softwares/wildcard/bin;
+    mkdir /vagrant/bin/languages;
+    mkdir /vagrant/bin/languages/hack;
+    mkdir /vagrant/bin/languages/hack/bin;
+    mkdir /vagrant/bin/languages/hack/cache;
 
     #link the web files:
-    ln -s /vagrant/vendor/irestful/core/src/apis.hh /vagrant/bin/apis/bin/index.hh;
-    ln -s /vagrant/vendor/irestful/core/src/wildcard.apis.hh /vagrant/bin/apis/wildcard/bin/index.hh;
-    ln -s /vagrant/vendor/irestful/core/src/language_apis/hack.hh /vagrant/bin/language_apis/hack/bin/index.hh;
+    ln -s /vagrant/vendor/irestful/core/src/softwares.hh /vagrant/bin/softwares/bin/index.hh;
+    ln -s /vagrant/vendor/irestful/core/src/wildcard.softwares.hh /vagrant/bin/softwares/wildcard/bin/index.hh;
+    ln -s /vagrant/vendor/irestful/core/src/languages/hack.hh /vagrant/bin/languages/hack/bin/index.hh;
 
     #add the event domain in the host file:
     sudo echo "127.0.0.1 code.irestful.com" >> /etc/hosts
-    sudo echo "127.0.0.1 hack.languageapi.irestful.com" >> /etc/hosts
-    sudo echo "127.0.0.1 apis.irestful.com" >> /etc/hosts
-    sudo echo "127.0.0.1 datastore.apis.irestful.com" >> /etc/hosts
+    sudo echo "127.0.0.1 hack.languages.irestful.com" >> /etc/hosts
+    sudo echo "127.0.0.1 softwares.irestful.com" >> /etc/hosts
+    sudo echo "127.0.0.1 datastore-apis.softwares.irestful.com" >> /etc/hosts
 
     #execute the tests:
     cd /vagrant; sudo hhvm -v ResourceLimit.SocketDefaultTimeout=30 -v Http.SlowQueryThreshold=30000 -v Eval.Jit=false -v Repo.Central.Path=/var/tmp /vagrant/composer.phar dump-autoload --optimize;
