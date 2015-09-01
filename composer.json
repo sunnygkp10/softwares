@@ -1,0 +1,22 @@
+{
+    "name": "irestful/softwares",
+    "type": "library",
+    "homepage": "https://github.com/irestful/softwares",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Steve Rodrigue",
+            "email": "steve@irestful.com"
+        }
+    ],
+    "require": {
+      "hhvm": ">=3.6",
+      "irestful/core": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.8.6"
+    },
+    "autoload": {
+        "psr-0": { "APIs": "src" }
+    }
+}

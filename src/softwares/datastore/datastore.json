@@ -1,0 +1,555 @@
+{
+    "name": "datastore",
+    "configuration": {
+        "variable_pointer": "->",
+        "variable_prefix": "*",
+        "variable_suffix": "*"
+    },
+    "request": {
+        "query": "_GET",
+        "request": "_POST",
+        "cookies": "_COOKIE",
+        "files": "_FILES",
+        "server": "_SERVER"
+    },
+    "cli": {
+        "params": "argv"
+    },
+    "environment_variables": {
+        "username": "DB_USERNAME",
+        "password": "DB_PASSWORD",
+        "server": "DB_SERVER",
+        "driver": "DB_DRIVER"
+    },
+    "languages": {
+        "hack": {
+            "host": "http://hack.languageapi.irestful.com",
+            "port": 80
+        }
+    },
+    "functions": {
+        "database_connect": {
+            "url": "http://code.irestful.com/softwares/datastore/logics/pdo/pdo-connect.hh",
+            "name": "PDOConnect",
+            "language": "hack"
+        },
+        "database_retrieve": {
+            "url": "http://code.irestful.com/softwares/datastore/logics/pdo/pdo-retrieve.hh",
+            "name": "PDORetrieve",
+            "language": "hack"
+        },
+        "database_retrieve_one": {
+            "url": "http://code.irestful.com/softwares/datastore/logics/pdo/pdo-retrieve-one.hh",
+            "name": "PDORetrieveOne",
+            "language": "hack"
+        },
+        "database_execute": {
+            "url": "http://code.irestful.com/softwares/datastore/logics/pdo/pdo-execute.hh",
+            "name": "PDOExecute",
+            "language": "hack"
+        },
+        "curl_execute": {
+            "url": "http://code.irestful.com/softwares/datastore/logics/curl/execute.hh",
+            "name": "execute",
+            "language": "hack"
+        },
+        "validator": {
+            "url": "http://code.irestful.com/softwares/datastore/logics/validator.hh",
+            "name": "validator",
+            "language": "hack"
+        },
+        "view_json": {
+            "url": "http://code.irestful.com/softwares/datastore/views/json.hh",
+            "name": "render",
+            "language": "hack"
+        },
+        "view_single_element": {
+            "url": "http://code.irestful.com/softwares/datastore/views/single-element.hh",
+            "name": "singleElement",
+            "language": "hack"
+        },
+        "view_elements_with_pagination": {
+            "url": "http://code.irestful.com/softwares/datastore/views/elements-with-pagination.hh",
+            "name": "elementsWithPagination",
+            "language": "hack"
+        },
+        "rendered_parser_json": {
+            "url": "http://code.irestful.com/softwares/datastore/rendered_parsers/json.hh",
+            "name": "parse",
+            "language": "hack"
+        },
+        "validator_regex_match": {
+            "url": "http://code.irestful.com/softwares/datastore/validators/regex-match.hh",
+            "name": "match",
+            "language": "hack"
+        },
+        "validator_software_name": {
+            "url": "http://code.irestful.com/softwares/datastore/validators/software-name.hh",
+            "name": "softwareName",
+            "language": "hack"
+        },
+        "validator_container_name": {
+            "url": "http://code.irestful.com/softwares/datastore/validators/container-name.hh",
+            "name": "containerName",
+            "language": "hack"
+        },
+        "validator_container_fields": {
+            "url": "http://code.irestful.com/softwares/datastore/validators/container-fields.hh",
+            "name": "containerFields",
+            "language": "hack"
+        },
+        "validator_element_fields": {
+            "url": "http://code.irestful.com/softwares/datastore/validators/element-fields.hh",
+            "name": "elementFields",
+            "language": "hack"
+        },
+        "validator_uuid": {
+            "url": "http://code.irestful.com/softwares/datastore/validators/uuid.hh",
+            "name": "uuid",
+            "language": "hack"
+        },
+        "validator_field_name": {
+            "url": "http://code.irestful.com/softwares/datastore/validators/field-name.hh",
+            "name": "fieldName",
+            "language": "hack"
+        },
+        "validator_field_value": {
+            "url": "http://code.irestful.com/softwares/datastore/validators/field-value.hh",
+            "name": "fieldValue",
+            "language": "hack"
+        },
+        "validator_integer": {
+            "url": "http://code.irestful.com/softwares/datastore/validators/integer.hh",
+            "name": "integer",
+            "language": "hack"
+        },
+        "validator_non_zero_integer": {
+            "url": "http://code.irestful.com/softwares/datastore/validators/non-zero-integer.hh",
+            "name": "nonZeroInteger",
+            "language": "hack"
+        },
+        "retrieve_software" : {
+            "url": "http://code.irestful.com/softwares/datastore/rest_apis/softwares/retrieve-software.hh",
+            "name": "retrieveSoftware",
+            "language": "hack"
+        },
+        "create_software" : {
+            "url": "http://code.irestful.com/softwares/datastore/rest_apis/softwares/create-software.hh",
+            "name": "createSoftware",
+            "language": "hack"
+        },
+        "delete_software" : {
+            "url": "http://code.irestful.com/softwares/datastore/rest_apis/softwares/delete-software.hh",
+            "name": "deleteSoftware",
+            "language": "hack"
+        },
+        "retrieve_container" : {
+            "url": "http://code.irestful.com/softwares/datastore/rest_apis/containers/retrieve-container.hh",
+            "name": "retrieveContainer",
+            "language": "hack"
+        },
+        "delete_container" : {
+            "url": "http://code.irestful.com/softwares/datastore/rest_apis/containers/delete-container.hh",
+            "name": "deleteContainer",
+            "language": "hack"
+        },
+        "create_container" : {
+            "url": "http://code.irestful.com/softwares/datastore/rest_apis/containers/create-container.hh",
+            "name": "createContainer",
+            "language": "hack"
+        },
+        "create_element" : {
+            "url": "http://code.irestful.com/softwares/datastore/rest_apis/elements/create-element.hh",
+            "name": "createElement",
+            "language": "hack"
+        },
+        "retrieve_element" : {
+            "url": "http://code.irestful.com/softwares/datastore/rest_apis/elements/retrieve-single-element.hh",
+            "name": "retrieveSingleElement",
+            "language": "hack"
+        },
+        "retrieve_element_by_unique_identifier" : {
+            "url": "http://code.irestful.com/softwares/datastore/rest_apis/elements/retrieve-single-element-by-unique-identifier.hh",
+            "name": "retrieveSingleElement",
+            "language": "hack"
+        },
+        "retrieve_elements_with_pagination" : {
+            "url": "http://code.irestful.com/softwares/datastore/rest_apis/elements/retrieve-elements-with-pagination.hh",
+            "name": "retrieveElementsWithPagination",
+            "language": "hack"
+        },
+        "delete_element" : {
+            "url": "http://code.irestful.com/softwares/datastore/rest_apis/elements/delete-element.hh",
+            "name": "deleteElement",
+            "language": "hack"
+        }
+    },
+    "logic": {
+        "connector_without_database": {
+            "function": "database_connect",
+            "params": {
+                "username": "*environment_variables->username*",
+                "password": "*environment_variables->password*",
+                "server": "*environment_variables->server*",
+                "driver": "*environment_variables->driver*"
+            }
+        },
+        "connector": {
+            "function": "database_connect",
+            "params": {
+                "username": "*environment_variables->username*",
+                "password": "*environment_variables->password*",
+                "server": "*environment_variables->server*",
+                "driver": "*environment_variables->driver*",
+                "database": {
+                    "input": "*request->query->software_name*",
+                    "validator": "software_name"
+                }
+            }
+        },
+        "retrieve_without_database": {
+            "function": "database_retrieve",
+            "sub_logics": {
+                "connector": "connector_without_database"
+            }
+        },
+        "retrieve": {
+            "function": "database_retrieve",
+            "sub_logics": {
+                "connector": "connector"
+            }
+        },
+        "retrieve_one_without_database": {
+            "function": "database_retrieve_one",
+            "sub_logics": {
+                "retrieve": "retrieve_without_database"
+            }
+        },
+        "retrieve_one": {
+            "function": "database_retrieve_one",
+            "sub_logics": {
+                "retrieve": "retrieve"
+            }
+        },
+        "execute_without_database": {
+            "function": "database_execute",
+            "sub_logics": {
+                "connector": "connector_without_database"
+            }
+        },
+        "execute": {
+            "function": "database_execute",
+            "sub_logics": {
+                "connector": "connector"
+            }
+        },
+        "curl_execute": {
+            "function": "curl_execute"
+        },
+        "validator": {
+            "function": "validator",
+            "sub_logics": {
+                "curl_execute": "curl_execute"
+            }
+        }
+    },
+    "views": {
+        "json": {
+            "function": "view_json"
+        },
+        "single_element_json": {
+            "function": "view_single_element",
+            "view": "json"
+        },
+        "single_element": {
+            "function": "view_single_element"
+        },
+        "multi_elements_with_pagination_json": {
+            "function": "view_elements_with_pagination",
+            "sub_views": {
+                "single_element": "single_element"
+            },
+            "view": "json"
+        }
+    },
+    "validators": {
+        "regex_match": {
+            "function": "validator_regex_match"
+        },
+        "software_name": {
+            "function": "validator_software_name"
+        },
+        "container_name": {
+            "function": "validator_container_name"
+        },
+        "container_fields": {
+            "function": "validator_container_fields"
+        },
+        "element_fields": {
+            "function": "validator_element_fields"
+        },
+        "uuid": {
+            "function": "validator_uuid",
+            "sub_validators": {
+                "regex_match": "regex_match"
+            }
+        },
+        "field_name": {
+            "function": "validator_field_name"
+        },
+        "field_value": {
+            "function": "validator_field_value"
+        },
+        "integer": {
+            "function": "validator_integer"
+        },
+        "non_zero_integer": {
+            "function": "validator_non_zero_integer"
+        }
+    },
+    "rest_apis": {
+        "retrieve_software": {
+            "function": "retrieve_software",
+            "params": {
+                "software_name": {
+                    "input": "*request->query->software_name*",
+                    "validator": "software_name"
+                }
+            },
+            "sub_logics": {
+                "connector": "connector"
+            },
+            "view": "json",
+            "rendered_parser": "json"
+        },
+        "create_software": {
+            "function": "create_software",
+            "params": {
+                "software_name": {
+                    "input": "*request->request->software_name*",
+                    "validator": "software_name"
+                }
+            },
+            "sub_logics": {
+                "retrieve": "retrieve_one_without_database",
+                "execute": "execute_without_database"
+            }
+        },
+        "delete_software": {
+            "function": "delete_software",
+            "params": {
+                "software_name": {
+                    "input": "*request->query->software_name*",
+                    "validator": "software_name"
+                }
+            },
+            "sub_logics": {
+                "execute": "execute"
+            },
+            "sub_rest_apis": {
+                "retrieve_software": "retrieve_software"
+            }
+        },
+        "retrieve_container": {
+            "function": "retrieve_container",
+            "params": {
+                "container_name": {
+                    "input": "*request->query->container_name*",
+                    "validator": "container_name"
+                }
+            },
+            "sub_logics": {
+                "retrieve": "retrieve"
+            },
+            "view": "json",
+            "rendered_parser": "json"
+        },
+        "delete_container": {
+            "function": "delete_container",
+            "params": {
+                "container_name": {
+                    "input": "*request->query->container_name*",
+                    "validator": "container_name"
+                }
+            },
+            "sub_logics": {
+                "execute": "execute"
+            }
+        },
+        "create_container": {
+            "function": "create_container",
+            "params": {
+                "container_name": {
+                    "input": "*request->request->name*",
+                    "validator": "container_name"
+                },
+                "fields": {
+                    "input": "*request->request->fields*",
+                    "validator": "container_fields"
+                }
+            },
+            "sub_logics": {
+                "execute": "execute"
+            }
+        },
+        "create_element": {
+            "function": "create_element",
+            "params": {
+                "container_name": {
+                    "input": "*request->query->container_name*",
+                    "validator": "container_name"
+                },
+                "data": {
+                    "input": "*request->request*",
+                    "validator": "element_fields"
+                }
+            },
+            "sub_rest_apis": {
+                "retrieve_container": "retrieve_container"
+            },
+            "sub_logics": {
+                "validator": "validator",
+                "execute": "execute"
+            }
+        },
+        "retrieve_element": {
+            "function": "retrieve_element",
+            "params": {
+                "container_name": {
+                    "input": "*request->query->container_name*",
+                    "validator": "container_name"
+                },
+                "uuid": {
+                    "input": "*request->query->uuid*",
+                    "validator": "uuid"
+                }
+            },
+            "sub_logics": {
+                "retrieve_one": "retrieve_one"
+            },
+            "view": "single_element_json"
+        },
+        "retrieve_element_by_unique_identifier": {
+            "function": "retrieve_element_by_unique_identifier",
+            "params": {
+                "field_name": {
+                    "input": "*request->query->field_name*",
+                    "validator": "field_name"
+                },
+                "field_value": {
+                    "input": "*request->query->field_value*",
+                    "validator": "field_value"
+                },
+                "container_name": {
+                    "input": "*request->query->container_name*",
+                    "validator": "container_name"
+                }
+            },
+            "sub_logics": {
+                "retrieve_one": "retrieve_one"
+            },
+            "view": "single_element_json"
+        },
+        "retrieve_elements_with_pagination": {
+            "function": "retrieve_elements_with_pagination",
+            "params": {
+                "container_name": {
+                    "input": "*request->query->container_name*",
+                    "validator": "container_name"
+                },
+                "index": {
+                    "input": "*request->query->index*",
+                    "validator": "integer"
+                },
+                "amount": {
+                    "input": "*request->query->amount*",
+                    "validator": "non_zero_integer"
+                }
+            },
+            "sub_logics": {
+                "retrieve": "retrieve"
+            },
+            "view": "multi_elements_with_pagination_json"
+        },
+        "delete_element": {
+            "function": "delete_element",
+            "params": {
+                "uuid": {
+                    "input": "*request->query->uuid*",
+                    "validator": "uuid"
+                },
+                "container_name": {
+                    "input": "*request->query->container_name*",
+                    "validator": "container_name"
+                }
+            },
+            "sub_logics": {
+                "execute": "execute"
+            }
+        }
+    },
+    "rendered_parsers": {
+        "json": {
+            "function": "rendered_parser_json"
+        }
+    },
+    "routes": {
+        "http": [
+            {
+                "pattern": "/",
+                "method": "post",
+                "rest_api": "create_software"
+            },
+            {
+                "pattern": "/*software_name*",
+                "method": "get",
+                "rest_api": "retrieve_software"
+            },
+            {
+                "pattern": "/*software_name*",
+                "method": "delete",
+                "rest_api": "delete_software"
+            },
+            {
+                "pattern": "/*software_name*",
+                "method": "post",
+                "rest_api": "create_container"
+            },
+            {
+                "pattern": "/*software_name*/*container_name*",
+                "method": "get",
+                "rest_api": "retrieve_container"
+            },
+            {
+                "pattern": "/*software_name*/*container_name*",
+                "method": "delete",
+                "rest_api": "delete_container"
+            },
+            {
+                "pattern": "/*software_name*/*container_name*",
+                "method": "post",
+                "rest_api": "create_element"
+            },
+            {
+                "pattern": "/*software_name*/*container_name*/*uuid*",
+                "method": "get",
+                "rest_api": "retrieve_element"
+            },
+            {
+                "pattern": "/*software_name*/*container_name*/*uuid*",
+                "method": "delete",
+                "rest_api": "delete_element"
+            },
+            {
+                "pattern": "/*software_name*/*container_name*/*field_name*/*field_value*",
+                "method": "get",
+                "rest_api": "retrieve_element_by_unique_identifier"
+            },
+            {
+                "pattern": "/*software_name*/*container_name*/elements/*index*/*amount*",
+                "method": "get",
+                "rest_api": "retrieve_elements_with_pagination"
+            }
+        ]
+    }
+}
