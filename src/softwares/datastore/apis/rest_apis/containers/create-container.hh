@@ -14,7 +14,6 @@ function createContainer(Map<string, string> $params = null, Map<string, \Closur
         throw new \Exception('The fields param is mandatory in order to create a container.', 500);
     }
 
-    $params['fields'] = json_decode($params['fields'], true);
     if (empty($params['fields'])) {
         throw new \Exception('The fields must be valid json.', 500);
     }
@@ -71,7 +70,6 @@ function createContainer(Map<string, string> $params = null, Map<string, \Closur
     $lines = array();
     $foreignKeys = array();
     $indexFields = array();
-
     foreach($params['fields'] as $name => $oneData) {
 
         $field = array();

@@ -283,10 +283,14 @@
             "function": "validator_container_name"
         },
         "container_fields": {
-            "function": "validator_container_fields"
+            "function": "validator_container_fields",
+            "view": "json",
+            "rendered_parser": "json"
         },
         "element_fields": {
-            "function": "validator_element_fields"
+            "function": "validator_element_fields",
+            "view": "json",
+            "rendered_parser": "json"
         },
         "uuid": {
             "function": "validator_uuid",

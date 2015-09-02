@@ -34,7 +34,7 @@ function retrieveContainer(Map<string, string> $params = null, Map<string, \Clos
         'query' => $query
     };
     $describe = $subLogics['retrieve']($queryParams);
-
+    
     $fields = array();
     foreach($describe as $oneRow) {
 
@@ -59,10 +59,9 @@ function retrieveContainer(Map<string, string> $params = null, Map<string, \Clos
         }
 
         if (!empty($oneRow['Comment'])) {
-
-            $decoded = json_decode($oneRow['Comment'], true);
-            if (isset($decoded['validator'])) {
-                $fields[$fieldName]['validator'] = $decoded['validator'];
+            $oneRow['Comment'] = json_decode($oneRow['Comment'], true);
+            if (isset($oneRow['Comment']['validator'])) {
+                $fields[$fieldName]['validator'] = $oneRow['Comment']['validator'];
             }
         }
 

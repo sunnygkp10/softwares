@@ -1,4 +1,4 @@
 <?hh
-function containerFields(array $fields) {
-    return json_encode($fields);
+function containerFields(Map<string, mixed> $fields) {
+    return $fields;
 };

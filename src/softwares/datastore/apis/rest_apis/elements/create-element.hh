@@ -21,7 +21,7 @@ function createElement(Map<string, string> $params = null, Map<string, \Closure>
         throw new \Exception('The data param is mandatory in order to create an element.', 500);
     }
 
-    $input = json_decode($params['data'], true);
+    $input = $params['data'];
     $container = $subAPIs['retrieve_container']();
 
     foreach($input as $name => $value) {

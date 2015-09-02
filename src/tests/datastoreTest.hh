@@ -245,8 +245,8 @@ final class softwareTest extends \PHPUnit_Framework_TestCase {
     private function retrieveElementByUuid_Success(string $software, string $container, string $uuid, array $data) {
 
         $uri = '/'.$software.'/'.$container.'/'.$uuid;
-
         $output = $this->execute('get', $uri);
+
         $retrievedData = json_decode($output['content'], true);
 
         $this->assertEquals($output['http_code'], 200);

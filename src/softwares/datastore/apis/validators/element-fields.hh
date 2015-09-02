@@ -1,6 +1,6 @@
 <?hh
-function elementFields(array $params) {
-    
+function elementFields(Map<string, mixed>  $params) {
+
     if (!isset($params['uuid'])) {
         throw new \Exception('The uuid field is mandatory.', 500);
     }
@@ -13,5 +13,5 @@ function elementFields(array $params) {
         throw new \Exception('The last_updated_on field cannot be set when inserting a new element.', 500);
     }
 
-    return json_encode($params);
+    return $params;
 };
