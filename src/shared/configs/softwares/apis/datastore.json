@@ -160,6 +160,11 @@
             "name": "retrieveElementsWithPagination",
             "language": "hack"
         },
+        "retrieve_total_amount_of_elements" : {
+            "url": "http://code.irestful.com/softwares/datastore/apis/rest_apis/elements/retrieve-total-amount-of-elements.hh",
+            "name": "retrieveTotalAmountOfElements",
+            "language": "hack"
+        },
         "delete_element" : {
             "url": "http://code.irestful.com/softwares/datastore/apis/rest_apis/elements/delete-element.hh",
             "name": "deleteElement",
@@ -199,6 +204,18 @@
             "function": "database_retrieve",
             "sub_logics": {
                 "connector": "connector"
+            }
+        },
+        "retrieve_total_amount_of_elements": {
+            "function": "retrieve_total_amount_of_elements",
+            "params": {
+                "container_name": {
+                    "input": "*request->query->container_name*",
+                    "validator": "container_name"
+                }
+            },
+            "sub_logics": {
+                "retrieve_one": "retrieve_one"
             }
         },
         "retrieve_one_without_database": {
@@ -246,7 +263,7 @@
         "single_element": {
             "function": "view_single_element"
         },
-        "multi_elements_with_pagination_json": {
+        "multi_elements_with_pagination": {
             "function": "view_elements_with_pagination",
             "sub_views": {
                 "single_element": "single_element"
@@ -450,12 +467,17 @@
                 "amount": {
                     "input": "*request->query->amount*",
                     "validator": "non_zero_integer"
+                },
+                "order_by": {
+                    "input": "*request->query->order_by*",
+                    "validator": "field_name"
                 }
             },
             "sub_logics": {
-                "retrieve": "retrieve"
+                "retrieve": "retrieve",
+                "retrieve_total_amount_of_elements": "retrieve_total_amount_of_elements"
             },
-            "view": "multi_elements_with_pagination_json"
+            "view": "multi_elements_with_pagination"
         },
         "delete_element": {
             "function": "delete_element",

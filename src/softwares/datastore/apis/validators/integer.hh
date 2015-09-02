@@ -1,5 +1,5 @@
 <?hh
-function integer(string $input, Map<string) {
+function integer(string $input) {
     $matches = array();
     preg_match_all('/[0-9]+/s', $input, $matches);
 

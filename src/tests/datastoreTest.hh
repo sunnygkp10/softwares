@@ -1,9 +1,6 @@
 <?hh
 final class softwareTest extends \PHPUnit_Framework_TestCase {
 
-    /*
-        Make sure to add the config data before doing anything.
-    */
     public function setUp() {
 
     }
@@ -236,7 +233,6 @@ final class softwareTest extends \PHPUnit_Framework_TestCase {
         $output = $this->execute('post', $uri, $data);
 
         $this->assertEquals($output['http_code'], 200);
-
     }
 
     private function retrieveElementByUuid_Success(string $software, string $container, string $uuid, array $data) {
@@ -263,6 +259,19 @@ final class softwareTest extends \PHPUnit_Framework_TestCase {
 
     }
 
+    private function retrieveElementsWithPagination_Success(string $software, string $container, integer $index, integer $amount, array $queryParams, array $data) {
+
+        $uri = '/'.$software.'/'.$container.'/elements/'.$index.'/'.$amount.'?'.http_build_query($queryParams);
+
+        $output = $this->execute('get', $uri);
+
+        $retrievedData = json_decode($output['content'], true);
+
+        $this->assertEquals($output['http_code'], 200);
+        $this->assertEquals($retrievedData['elements'], $data);
+
+    }
+
     private function deleteElement_Success(string $software, string $container, string $uuid) {
 
         $uri = '/'.$software.'/'.$container.'/'.$uuid;
@@ -271,14 +280,17 @@ final class softwareTest extends \PHPUnit_Framework_TestCase {
         $this->assertEquals($output['http_code'], 200);
     }
 
-
     public function testElement() {
 
         $this->saveSoftwareInDataStore_Success();
 
         $software = 'my_software';
         $container = 'my_container';
+
         $data = $this->getSimpleData();
+        sleep(2); //we sleep to get different created_on timestamps
+        $secondData = $this->getSimpleData();
+        $queryParams = array('order_by' => 'created_on');
 
         //insert the software, then the container, then the element:
         $this->insertSoftware_Success($software);
@@ -289,6 +301,15 @@ final class softwareTest extends \PHPUnit_Framework_TestCase {
         $this->retrieveElementByUuid_Success($software, $container, $data['uuid'], $data);
         $this->retrieveElementByUniqueIdentifier_Success($software, $container, 'slug', $data['slug'], $data);
         $this->deleteElement_Success($software, $container, $data['uuid']);
+
+        //insert 2 elements and retrieve them with pagination:
+        $this->insertElement_Success($software, $container, $data);
+        $this->insertElement_Success($software, $container, $secondData);
+        $this->retrieveElementsWithPagination_Success($software, $container, 0, 2, $queryParams, array($data, $secondData));
+        $this->retrieveElementsWithPagination_Success($software, $container, 0, 1, $queryParams, array($data));
+        $this->retrieveElementsWithPagination_Success($software, $container, 1, 1, $queryParams, array($secondData));
+        $this->deleteElement_Success($software, $container, $data['uuid']);
+        $this->deleteElement_Success($software, $container, $secondData['uuid']);
 
         //delete the software, container then the element:
         $this->deleteContainer_Success($software, $container);
