@@ -1,0 +1,23 @@
+{
+    "configuration": {
+        "variable_pointer": "->",
+        "variable_prefix": "*",
+        "variable_suffix": "*"
+    },
+    "request": {
+        "query": "_GET",
+        "request": "_POST",
+        "cookies": "_COOKIE",
+        "files": "_FILES",
+        "server": "_SERVER"
+    },
+    "cli": {
+        "params": "argv"
+    },
+    "languages": {
+        "hack": {
+            "host": "http://hack.languages.irestful.com",
+            "port": 80
+        }
+    }
+}

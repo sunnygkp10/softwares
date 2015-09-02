@@ -125,7 +125,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     sudo echo "127.0.0.1 code.irestful.com" >> /etc/hosts
     sudo echo "127.0.0.1 hack.languages.irestful.com" >> /etc/hosts
     sudo echo "127.0.0.1 softwares.irestful.com" >> /etc/hosts
-    sudo echo "127.0.0.1 datastore-apis.softwares.irestful.com" >> /etc/hosts
+    sudo echo "127.0.0.1 apis-datastore.softwares.irestful.com" >> /etc/hosts
 
     #execute the tests:
     cd /vagrant; sudo hhvm -v ResourceLimit.SocketDefaultTimeout=30 -v Http.SlowQueryThreshold=30000 -v Eval.Jit=false -v Repo.Central.Path=/var/tmp /vagrant/composer.phar dump-autoload --optimize;

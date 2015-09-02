@@ -56,13 +56,13 @@ final class softwareTest extends \PHPUnit_Framework_TestCase {
 
     private function execute(string $httpMethod, string $uri, array $data = null) {
 
-        return $this->executeCurlRequest('http://datastore-apis.softwares.irestful.com', $httpMethod, $uri, $data);
+        return $this->executeCurlRequest('http://apis-datastore.softwares.irestful.com', $httpMethod, $uri, $data);
     }
 
     private function saveSoftwareInDataStore_Success() {
 
         $data = array(
-            'config_url' => 'http://code.irestful.com/softwares/datastore/apis/datastore.json'
+            'config_url' => 'http://code.irestful.com/shared/configs/softwares/apis/datastore.json'
         );
 
         $host = 'http://softwares.irestful.com';
@@ -70,10 +70,7 @@ final class softwareTest extends \PHPUnit_Framework_TestCase {
 
         $output = $this->executeCurlRequest($host, 'post', $uri, $data);
 
-
-
         $this->assertEquals($output['http_code'], 200);
-
     }
 
     private function insertSoftware_Success(string $name) {

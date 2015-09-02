@@ -1,31 +1,13 @@
 {
-    "name": "datastore-apis",
-    "configuration": {
-        "variable_pointer": "->",
-        "variable_prefix": "*",
-        "variable_suffix": "*"
-    },
-    "request": {
-        "query": "_GET",
-        "request": "_POST",
-        "cookies": "_COOKIE",
-        "files": "_FILES",
-        "server": "_SERVER"
-    },
-    "cli": {
-        "params": "argv"
-    },
+    "name": "apis-datastore",
+    "parents": [
+        "http://code.irestful.com/shared/configs/parent/main.json"
+    ],
     "environment_variables": {
         "username": "DB_USERNAME",
         "password": "DB_PASSWORD",
         "server": "DB_SERVER",
         "driver": "DB_DRIVER"
-    },
-    "languages": {
-        "hack": {
-            "host": "http://hack.languages.irestful.com",
-            "port": 80
-        }
     },
     "functions": {
         "database_connect": {

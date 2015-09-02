@@ -1,4 +1,5 @@
 {
+    "name": "integrate-datastore",
     "environment_variables": {
         "datastore_host": "DATASTORE_HOST",
         "datastore_port": "DATASTORE_PORT"
