@@ -266,7 +266,7 @@ final class softwareTest extends \PHPUnit_Framework_TestCase {
 
     }
 
-    private function deleteElementByUuid_Success(string $software, string $container, string $uuid) {
+    private function deleteElement_Success(string $software, string $container, string $uuid) {
 
         $uri = '/'.$software.'/'.$container.'/'.$uuid;
         $output = $this->execute('delete', $uri);
@@ -291,7 +291,7 @@ final class softwareTest extends \PHPUnit_Framework_TestCase {
         $this->insertElement_Success($software, $container, $data);
         $this->retrieveElementByUuid_Success($software, $container, $data['uuid'], $data);
         $this->retrieveElementByUniqueIdentifier_Success($software, $container, 'slug', $data['slug'], $data);
-        $this->deleteElementByUuid_Success($software, $container, $data['uuid']);
+        $this->deleteElement_Success($software, $container, $data['uuid']);
 
         //delete the software, container then the element:
         $this->deleteContainer_Success($software, $container);

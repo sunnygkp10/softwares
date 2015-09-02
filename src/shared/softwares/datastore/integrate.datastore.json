@@ -1,0 +1,168 @@
+{
+    "environment_variables": {
+        "datastore_host": "DATASTORE_HOST",
+        "datastore_port": "DATASTORE_PORT"
+    },
+    "functions": {
+        "curl_execute": {
+            "url": "http://code.irestful.com/softwares/datastore/apis/logics/curl/execute.hh",
+            "name": "execute",
+            "language": "hack"
+        },
+        "insert_software": {
+            "url": "http://code.irestful.com/shared/softwares/datastore/logics/softwares/insert_software.hh",
+            "name": "insertSoftware",
+            "language": "hack"
+        },
+        "retrieve_software": {
+            "url": "http://code.irestful.com/shared/softwares/datastore/logics/softwares/retrieve_software.hh",
+            "name": "retrieveSoftware",
+            "language": "hack"
+        },
+        "delete_software": {
+            "url": "http://code.irestful.com/shared/softwares/datastore/logics/softwares/delete_software.hh",
+            "name": "deleteSoftware",
+            "language": "hack"
+        },
+        "insert_container": {
+            "url": "http://code.irestful.com/shared/softwares/datastore/logics/containers/insert_container.hh",
+            "name": "insertContainer",
+            "language": "hack"
+        },
+        "retrieve_container": {
+            "url": "http://code.irestful.com/shared/softwares/datastore/logics/containers/retrieve_container.hh",
+            "name": "retrieveContainer",
+            "language": "hack"
+        },
+        "delete_container": {
+            "url": "http://code.irestful.com/shared/softwares/datastore/logics/containers/delete_container.hh",
+            "name": "deleteContainer",
+            "language": "hack"
+        },
+        "insert_element": {
+            "url": "http://code.irestful.com/shared/softwares/datastore/logics/elements/insert_element.hh",
+            "name": "insertElement",
+            "language": "hack"
+        },
+        "retrieve_element_by_uuid": {
+            "url": "http://code.irestful.com/shared/softwares/datastore/logics/elements/retrieve_element_by_uuid.hh",
+            "name": "retrieveElementByUuid",
+            "language": "hack"
+        },
+        "retrieve_element_by_unique_identifier": {
+            "url": "http://code.irestful.com/shared/softwares/datastore/logics/elements/retrieve_element_by_unique_identifier.hh",
+            "name": "retrieveElementByUniqueIdentifier",
+            "language": "hack"
+        },
+        "delete_element": {
+            "url": "http://code.irestful.com/shared/softwares/datastore/logics/elements/delete_element.hh",
+            "name": "deleteElement",
+            "language": "hack"
+        }
+    },
+    "logic": {
+        "curl_execute": {
+            "function": "curl_execute"
+        },
+        "insert_software": {
+            "function": "insert_software",
+            "params": {
+                "host": "*environment_variables->datastore_host*",
+                "port": "*environment_variables->datastore_port*"
+            },
+            "sub_logics": {
+                "execute": "curl_execute"
+            }
+        },
+        "retrieve_software": {
+            "function": "retrieve_software",
+            "params": {
+                "host": "*environment_variables->datastore_host*",
+                "port": "*environment_variables->datastore_port*"
+            },
+            "sub_logics": {
+                "execute": "curl_execute"
+            }
+        },
+        "delete_software": {
+            "function": "delete_software",
+            "params": {
+                "host": "*environment_variables->datastore_host*",
+                "port": "*environment_variables->datastore_port*"
+            },
+            "sub_logics": {
+                "execute": "curl_execute"
+            }
+        },
+        "insert_container": {
+            "function": "insert_container",
+            "params": {
+                "host": "*environment_variables->datastore_host*",
+                "port": "*environment_variables->datastore_port*"
+            },
+            "sub_logics": {
+                "execute": "curl_execute"
+            }
+        },
+        "retrieve_container": {
+            "function": "retrieve_container",
+            "params": {
+                "host": "*environment_variables->datastore_host*",
+                "port": "*environment_variables->datastore_port*"
+            },
+            "sub_logics": {
+                "execute": "curl_execute"
+            }
+        },
+        "delete_container": {
+            "function": "delete_container",
+            "params": {
+                "host": "*environment_variables->datastore_host*",
+                "port": "*environment_variables->datastore_port*"
+            },
+            "sub_logics": {
+                "execute": "curl_execute"
+            }
+        },
+        "insert_element": {
+            "function": "insert_element",
+            "params": {
+                "host": "*environment_variables->datastore_host*",
+                "port": "*environment_variables->datastore_port*"
+            },
+            "sub_logics": {
+                "execute": "curl_execute"
+            }
+        },
+        "retrieve_element_by_uuid": {
+            "function": "retrieve_element_by_uuid",
+            "params": {
+                "host": "*environment_variables->datastore_host*",
+                "port": "*environment_variables->datastore_port*"
+            },
+            "sub_logics": {
+                "execute": "curl_execute"
+            }
+        },
+        "retrieve_element_by_unique_identifier": {
+            "function": "retrieve_element_by_unique_identifier",
+            "params": {
+                "host": "*environment_variables->datastore_host*",
+                "port": "*environment_variables->datastore_port*"
+            },
+            "sub_logics": {
+                "execute": "curl_execute"
+            }
+        },
+        "delete_element": {
+            "function": "delete_element",
+            "params": {
+                "host": "*environment_variables->datastore_host*",
+                "port": "*environment_variables->datastore_port*"
+            },
+            "sub_logics": {
+                "execute": "curl_execute"
+            }
+        }
+    }
+}
