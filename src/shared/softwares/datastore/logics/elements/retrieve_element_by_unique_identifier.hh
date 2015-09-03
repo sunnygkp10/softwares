@@ -42,6 +42,6 @@ function retrieveElementByUniqueIdentifier(Map<string, string> $params = null, M
         throw new \Exception($output['content'], $output['http_code']);
     }
 
-    return $output;
+    return $output['content'];
 
 }

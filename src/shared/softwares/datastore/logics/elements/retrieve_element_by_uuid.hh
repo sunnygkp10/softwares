@@ -37,5 +37,5 @@ function retrieveElementByUuid(Map<string, string> $params = null, Map<string, \
         throw new \Exception($output['content'], $output['http_code']);
     }
 
-    return $output;
+    return $output['content'];
 }

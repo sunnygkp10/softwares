@@ -79,10 +79,9 @@ final class ConcreteRawConfigurationRepository implements RawConfigurationReposi
         if (isset($data['parents'])) {
             $parentUrls = $convertToVector($data['parents']);
             $parents = $this->retrieveMaps($parentUrls);
-            foreach($parents as $oneParentData) {
+            foreach($parents as $keyname => $oneParentData) {
                 $data = $replaceInData($data, $oneParentData);
             }
-
             unset($data['parents']);
         }
 

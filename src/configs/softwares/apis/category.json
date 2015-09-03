@@ -83,8 +83,7 @@
         }
     },
     "rest_apis": {
-        "insert_category": {
-            "function": "insert_category",
+        "insert_element": {
             "params": {
                 "software_name": "*environment_variables->software_name*",
                 "container_name": "*environment_variables->container_name*",
@@ -92,37 +91,27 @@
                     "input": "*request->request*",
                     "validator": "category_fields"
                 }
-            },
-            "sub_logics": {
-                "insert_element": "insert_element"
             }
         },
-        "delete_category": {
-            "function": "delete_category",
+        "delete_element": {
             "params": {
                 "software_name": "*environment_variables->software_name*",
                 "container_name": "*environment_variables->container_name*",
-                "category_uuid": {
+                "uuid": {
                     "input": "*request->query->category_uuid*",
                     "validator": "uuid"
                 }
-            },
-            "sub_logics": {
-                "delete_element": "delete_element"
             }
         },
-        "retrieve_category": {
-            "function": "retrieve_category",
+        "retrieve_element_by_unique_identifier": {
             "params": {
                 "software_name": "*environment_variables->software_name*",
                 "container_name": "*environment_variables->container_name*",
-                "slug": {
+                "field_name": "slug",
+                "field_value": {
                     "input": "*request->query->category_slug*",
                     "validator": "slug"
                 }
-            },
-            "sub_logics": {
-                "retrieve": "retrieve_element_by_unique_identifier"
             }
         }
     },
@@ -136,17 +125,17 @@
             {
                 "pattern": "/",
                 "method": "post",
-                "rest_api": "insert_category"
+                "rest_api": "insert_element"
             },
             {
                 "pattern": "/*category_slug*",
                 "method": "get",
-                "rest_api": "retrieve_category"
+                "rest_api": "retrieve_element_by_unique_identifier"
             },
             {
                 "pattern": "/*category_uuid*",
                 "method": "delete",
-                "rest_api": "delete_category"
+                "rest_api": "delete_element"
             }
         ]
     }

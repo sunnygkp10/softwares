@@ -63,7 +63,9 @@
     "logic": {
         "curl_execute": {
             "function": "curl_execute"
-        },
+        }
+    },
+    "rest_apis": {
         "insert_software": {
             "function": "insert_software",
             "params": {
