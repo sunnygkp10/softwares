@@ -4,48 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3246e08f2f3927c952f17d4478980b84",
-    "packages": [
-        {
-            "name": "irestful/core",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/irestful/core.git",
-                "reference": "c3b37ea7f4a6885012e403e72c5fd2e085d2dcd1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/irestful/core/zipball/c3b37ea7f4a6885012e403e72c5fd2e085d2dcd1",
-                "reference": "c3b37ea7f4a6885012e403e72c5fd2e085d2dcd1",
-                "shasum": ""
-            },
-            "require": {
-                "hhvm": ">=3.6"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.8.6"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "APIs": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Steve Rodrigue",
-                    "email": "steve@irestful.com"
-                }
-            ],
-            "homepage": "https://github.com/irestful/core",
-            "time": "2015-09-03 02:10:35"
-        }
-    ],
+    "hash": "ac504eb182d59ccc71735f0fe5bb17b3",
+    "packages": [],
     "packages-dev": [
         {
             "name": "doctrine/instantiator",
@@ -1001,9 +961,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "irestful/core": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

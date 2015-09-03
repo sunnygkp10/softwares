@@ -10,13 +10,12 @@
         }
     ],
     "require": {
-      "hhvm": ">=3.6",
-      "irestful/core": "dev-master"
+      "hhvm": ">=3.6"
     },
     "require-dev": {
         "phpunit/phpunit": "4.8.6"
     },
     "autoload": {
-        "psr-0": { "APIs": "src" }
+        "psr-0": { "APIs": "src/core" }
     }
 }

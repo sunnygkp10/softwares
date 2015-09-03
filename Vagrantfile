@@ -117,9 +117,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     mkdir /vagrant/bin/languages/hack/cache;
 
     #link the web files:
-    ln -s /vagrant/vendor/irestful/core/src/softwares.hh /vagrant/bin/softwares/bin/index.hh;
-    ln -s /vagrant/vendor/irestful/core/src/wildcard.softwares.hh /vagrant/bin/softwares/wildcard/bin/index.hh;
-    ln -s /vagrant/vendor/irestful/core/src/languages/hack.hh /vagrant/bin/languages/hack/bin/index.hh;
+    ln -s /vagrant/src/core/softwares.hh /vagrant/bin/softwares/bin/index.hh;
+    ln -s /vagrant/src/core/wildcard.softwares.hh /vagrant/bin/softwares/wildcard/bin/index.hh;
+    ln -s /vagrant/src/core/languages/hack.hh /vagrant/bin/languages/hack/bin/index.hh;
 
     #add the event domain in the host file:
     sudo echo "127.0.0.1 code.irestful.com" >> /etc/hosts
