@@ -1,5 +1,4 @@
 <?hh
-
 function createContainer(Map<string, string> $params = null, Map<string, \Closure> $subLogics = null, Map<string, string> $subAPIs = null) {
 
     if (!isset($subLogics['execute'])) {
@@ -111,7 +110,7 @@ function createContainer(Map<string, string> $params = null, Map<string, \Closur
             $field['length'] = (integer) $oneData['length'];
         }
 
-        if (isset($field['unique']) && $field['primary_key']) {
+        if (isset($field['unique']) && isset($field['primary_key'])) {
             unset($field['unique']);
         }
 

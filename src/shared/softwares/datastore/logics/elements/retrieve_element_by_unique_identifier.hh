@@ -31,12 +31,17 @@ function retrieveElementByUniqueIdentifier(Map<string, string> $params = null, M
     }
 
     $params['uri'] = '/'.$params['software_name'].'/'.$params['container_name'].'/'.$params['field_name'].'/'.$params['field_value'];
-    $params['http_method'] = 'delete';
+    $params['http_method'] = 'get';
     unset($params['software_name']);
     unset($params['container_name']);
     unset($params['field_name']);
     unset($params['field_value']);
 
-    return $subLogics['execute']($params);
+    $output = $subLogics['execute']($params);
+    if ($output['http_code'] != 200) {
+        throw new \Exception($output['content'], $output['http_code']);
+    }
+
+    return $output;
 
 }

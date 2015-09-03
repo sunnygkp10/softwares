@@ -1,0 +1,153 @@
+{
+    "name": "apis-category",
+    "parents": [
+        "http://code.irestful.com/configs/parent/main.json",
+        "http://code.irestful.com/configs/integrate/datastore.json"
+    ],
+    "environment_variables": {
+        "software_name": "CATEGORY_SOFTWARE_NAME",
+        "container_name": "CATEGORY_CONTAINER_NAME"
+    },
+    "functions": {
+        "insert_category": {
+            "url": "http://code.irestful.com/softwares/category/apis/rest_apis/insert_category.hh",
+            "name": "insertCategory",
+            "language": "hack"
+        },
+        "delete_category": {
+            "url": "http://code.irestful.com/softwares/category/apis/rest_apis/delete_category.hh",
+            "name": "deleteCategory",
+            "language": "hack"
+        },
+        "retrieve_category": {
+            "url": "http://code.irestful.com/softwares/category/apis/rest_apis/retrieve_category.hh",
+            "name": "retrieveCategory",
+            "language": "hack"
+        },
+        "validator_category_fields": {
+            "url": "http://code.irestful.com/softwares/category/apis/validators/category_fields.hh",
+            "name": "categoryFields",
+            "language": "hack"
+        },
+        "validator_regex_match": {
+            "url": "http://code.irestful.com/softwares/datastore/apis/validators/regex-match.hh",
+            "name": "match",
+            "language": "hack"
+        },
+        "validator_uuid": {
+            "url": "http://code.irestful.com/softwares/datastore/apis/validators/uuid.hh",
+            "name": "uuid",
+            "language": "hack"
+        },
+        "validator_slug": {
+            "url": "http://code.irestful.com/softwares/category/apis/validators/slug.hh",
+            "name": "slug",
+            "language": "hack"
+        },
+        "view_json": {
+            "url": "http://code.irestful.com/softwares/datastore/apis/views/json.hh",
+            "name": "render",
+            "language": "hack"
+        },
+        "rendered_parser_json": {
+            "url": "http://code.irestful.com/softwares/datastore/apis/rendered_parsers/json.hh",
+            "name": "parse",
+            "language": "hack"
+        }
+    },
+    "views": {
+        "json": {
+            "function": "view_json"
+        }
+    },
+    "validators": {
+        "regex_match": {
+            "function": "validator_regex_match"
+        },
+        "uuid": {
+            "function": "validator_uuid",
+            "sub_validators": {
+                "regex_match": "regex_match"
+            }
+        },
+        "slug": {
+            "function": "validator_slug",
+            "sub_validators": {
+                "regex_match": "regex_match"
+            }
+        },
+        "category_fields": {
+            "function": "validator_category_fields",
+            "view": "json",
+            "rendered_parser": "json"
+        }
+    },
+    "rest_apis": {
+        "insert_category": {
+            "function": "insert_category",
+            "params": {
+                "software_name": "*environment_variables->software_name*",
+                "container_name": "*environment_variables->container_name*",
+                "data": {
+                    "input": "*request->request*",
+                    "validator": "category_fields"
+                }
+            },
+            "sub_logics": {
+                "insert_element": "insert_element"
+            }
+        },
+        "delete_category": {
+            "function": "delete_category",
+            "params": {
+                "software_name": "*environment_variables->software_name*",
+                "container_name": "*environment_variables->container_name*",
+                "category_uuid": {
+                    "input": "*request->query->category_uuid*",
+                    "validator": "uuid"
+                }
+            },
+            "sub_logics": {
+                "delete_element": "delete_element"
+            }
+        },
+        "retrieve_category": {
+            "function": "retrieve_category",
+            "params": {
+                "software_name": "*environment_variables->software_name*",
+                "container_name": "*environment_variables->container_name*",
+                "slug": {
+                    "input": "*request->query->category_slug*",
+                    "validator": "slug"
+                }
+            },
+            "sub_logics": {
+                "retrieve": "retrieve_element_by_unique_identifier"
+            }
+        }
+    },
+    "rendered_parsers": {
+        "json": {
+            "function": "rendered_parser_json"
+        }
+    },
+    "routes": {
+        "http": [
+            {
+                "pattern": "/",
+                "method": "post",
+                "rest_api": "insert_category"
+            },
+            {
+                "pattern": "/*category_slug*",
+                "method": "get",
+                "rest_api": "retrieve_category"
+            },
+            {
+                "pattern": "/*category_uuid*",
+                "method": "delete",
+                "rest_api": "delete_category"
+            }
+        ]
+    }
+}

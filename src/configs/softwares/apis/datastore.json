@@ -1,7 +1,7 @@
 {
     "name": "apis-datastore",
     "parents": [
-        "http://code.irestful.com/shared/configs/parent/main.json"
+        "http://code.irestful.com/configs/parent/main.json"
     ],
     "environment_variables": {
         "username": "DB_USERNAME",
@@ -32,6 +32,11 @@
         },
         "curl_execute": {
             "url": "http://code.irestful.com/softwares/datastore/apis/logics/curl/execute.hh",
+            "name": "execute",
+            "language": "hack"
+        },
+        "curl_execute_multiple": {
+            "url": "http://code.irestful.com/softwares/datastore/apis/logics/curl/execute_multiple.hh",
             "name": "execute",
             "language": "hack"
         },
@@ -245,10 +250,13 @@
         "curl_execute": {
             "function": "curl_execute"
         },
+        "curl_execute_multiple": {
+            "function": "curl_execute_multiple"
+        },
         "validator": {
             "function": "validator",
             "sub_logics": {
-                "curl_execute": "curl_execute"
+                "curl_execute": "curl_execute_multiple"
             }
         }
     },

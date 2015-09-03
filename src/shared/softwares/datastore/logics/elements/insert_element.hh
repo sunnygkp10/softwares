@@ -32,5 +32,4 @@ function insertElement(Map<string, string> $params = null, Map<string, \Closure>
     unset($params['container_name']);
 
     return $subLogics['execute']($params);
-
 }

@@ -59,7 +59,7 @@ final class softwareTest extends \PHPUnit_Framework_TestCase {
     private function saveSoftwareInDataStore_Success() {
 
         $data = array(
-            'config_url' => 'http://code.irestful.com/shared/configs/softwares/apis/datastore.json'
+            'config_url' => 'http://code.irestful.com/configs/softwares/apis/datastore.json'
         );
 
         $host = 'http://softwares.irestful.com';
@@ -72,7 +72,7 @@ final class softwareTest extends \PHPUnit_Framework_TestCase {
 
     private function insertSoftware_Success(string $name) {
 
-        $data = array('software_name' => 'my_software');
+        $data = array('software_name' => $name);
         $output = $this->execute('post', '/', $data);
 
         $this->assertEquals($output['http_code'], 200);
@@ -141,7 +141,7 @@ final class softwareTest extends \PHPUnit_Framework_TestCase {
                             'port' => 80
                         ),
                         'function' => array(
-                            'url' => 'http://code.irestful.com/softwares/datastore/apis/validators/slug.hh',
+                            'url' => 'http://code.irestful.com/softwares/category/apis/validators/slug.hh',
                             'name' => 'slug',
                             'language' => 'hack'
                         )

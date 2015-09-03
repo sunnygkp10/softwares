@@ -23,7 +23,7 @@ function createElement(Map<string, string> $params = null, Map<string, \Closure>
 
     $input = $params['data'];
     $container = $subAPIs['retrieve_container']();
-
+    $validators = Map<string, Map<string, string>> {};
     foreach($input as $name => $value) {
 
         if (!isset($container['fields'][$name])) {
@@ -36,14 +36,25 @@ function createElement(Map<string, string> $params = null, Map<string, \Closure>
         }
 
         //execute the validator:
-        $validatorParams = Map<string, string> {
+        $validators[$name] = Map<string, string> {
             'validator' => $field['validator'],
             'value' => $value
         };
+    }
 
-        $output = $subLogics['validator']($validatorParams);
-        if ($output != $value) {
-            throw new \Exception("The field's value cannot be validated against its validator.  Field name: ".$name.", field value: ".$value, 500);
+    $validatorParams = Map<string, Map<string, Map<string, string>>> {
+        'validators' => $validators
+    };
+    $output = $subLogics['validator']($validatorParams);
+
+    foreach($output as $keyname => $oneOutput) {
+
+        if ($oneOutput['http_code'] != 200) {
+            throw new \Exception('The field ('.$keyname.') was not able to validate.  The returned http_code was: '.$oneOutput['http_code'].'.  The content was: '.$oneOutput['content']);
+        }
+
+        if ($oneOutput['content'] != $validators[$keyname]['value']) {
+            throw new \Exception('The field () did not validate.  The input was: '.$validators[$keyname]['value'].'.  The output was: '.$oneOutput['content']);
         }
 
     }
